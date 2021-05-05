@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Own Adventure</title>
+    <style>
+        body {
+            background:rgb(0 0 0 / 30%);
+            font-family: "georgia";
+        }
+        section {
+            padding: 25px 50px;
+            width: 500px;
+            background-color: rgb(255, 248, 239);
+            margin: 0px auto;
+            box-shadow: 0 3px 3px rgb(0 0 0 / 30%);
+        }
+        ul {
+            padding: 0;
+            list-style: none
+        }
+        li {
+            margin: 5px 0;
+        }
+        a, a:visited, a:hover {
+            color: rgb(104, 135, 133)
+
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="content">
+            <h1>{{.Title}}</h1>
+            {{range .Paragraphs}}
+            <p>{{.}}</p>
+            {{end}}
+            <br>
+        </div>
+        <hr>
+        <ul>
+        {{range .Options}}
+            <li><a href="/{{.Chapter}}">{{.Text}}</a></li>
+        {{end}}
+        </ul>
+    </section>
+</body>
+</html>
+
+<!-- type Chapter struct {
+	Title      string   `json:"title"`
+	Paragraphs []string `json:"story"`
+	Options    []Option `json:"options"`
+}
+
+type Option struct {
+	Text    string `json:"text"`
+	Chapter string `json:"arc"`
+} -->
